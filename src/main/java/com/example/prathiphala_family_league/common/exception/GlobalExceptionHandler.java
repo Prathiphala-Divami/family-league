@@ -23,7 +23,7 @@ public class GlobalExceptionHandler {
                 .body(ApiResponse.error(ex.getErrorCode(), ex.getMessage(), req.getRequestURI()));
     }
 
-    @ExceptionHandler({PredictionWindowClosedException.class, DuplicatePredictionException.class})
+    @ExceptionHandler({PredictionWindowClosedException.class, DuplicatePredictionException.class, DuplicateResultException.class})
     public ResponseEntity<ApiResponse<Void>> handleConflict(FamilyLeagueException ex, HttpServletRequest req) {
         return ResponseEntity.status(HttpStatus.CONFLICT)
                 .body(ApiResponse.error(ex.getErrorCode(), ex.getMessage(), req.getRequestURI()));

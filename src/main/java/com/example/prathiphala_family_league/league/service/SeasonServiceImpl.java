@@ -17,6 +17,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 
@@ -116,6 +117,14 @@ public class SeasonServiceImpl implements SeasonService {
         return seasonTeamRepository.findBySeasonId(seasonId).stream()
                 .map(st -> new TeamResponse(st.getTeam()))
                 .toList();
+    }
+
+    @Override
+    @Transactional
+    public void updatePredictionLockTime(Long seasonId, Instant predictionLockTime) {
+        Season season = findSeason(seasonId);
+        season.setPredictionLockTime(predictionLockTime);
+        seasonRepository.save(season);
     }
 
     @Override

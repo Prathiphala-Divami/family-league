@@ -8,6 +8,7 @@ import com.example.prathiphala_family_league.team.dto.TeamResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.Instant;
 import java.util.List;
 
 public interface SeasonService {
@@ -19,6 +20,9 @@ public interface SeasonService {
     SeasonResponse addTeamToSeason(Long seasonId, Long teamId);
     List<TeamResponse> getTeamsInSeason(Long seasonId);
 
-    // Package-visible: lets other services (Match, Prediction) load a Season entity
+    // Called by MatchService to keep season.predictionLockTime = 4h before first match.
+    void updatePredictionLockTime(Long seasonId, Instant predictionLockTime);
+
+    // Entity accessor for other services (Match, Prediction)
     Season findSeason(Long seasonId);
 }
