@@ -1,5 +1,6 @@
 package com.example.prathiphala_family_league.prediction.service;
 
+import com.example.prathiphala_family_league.leaderboard.service.LeaderboardService;
 import com.example.prathiphala_family_league.match.entity.MatchResult;
 import com.example.prathiphala_family_league.match.event.ResultPublishedEvent;
 import com.example.prathiphala_family_league.match.repository.MatchResultRepository;
@@ -22,6 +23,7 @@ public class ScoringService {
 
     private final MatchResultRepository matchResultRepository;
     private final PredictionRepository predictionRepository;
+    private final LeaderboardService leaderboardService;
 
     // Fires on familyLeagueExecutor after the result-publishing transaction commits.
     // @TransactionalEventListener(AFTER_COMMIT) prevents a race between this read
@@ -44,7 +46,7 @@ public class ScoringService {
         predictionRepository.saveAll(predictions);
 
         log.info("Scoring complete: matchId={} — {} prediction(s) updated", event.getMatchId(), predictions.size());
-        // Phase 12 will add: leaderboardService.recalculate(event.getSeasonId())
+        leaderboardService.recalculate(event.getSeasonId());
     }
 
     private int score(Prediction p, MatchResult r) {

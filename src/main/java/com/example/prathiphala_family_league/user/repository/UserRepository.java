@@ -7,9 +7,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
+
+    List<User> findAllByDeletedFalseAndActiveTrue();
+
+    @Query("SELECT u FROM User u WHERE u.role.roleName = :roleName AND u.deleted = false AND u.active = true")
+    List<User> findActiveUsersByRoleName(@Param("roleName") String roleName);
     Optional<User> findByEmailAndDeletedFalse(String email);
     Optional<User> findByIdAndDeletedFalse(Long id);
     Page<User> findAllByDeletedFalse(Pageable pageable);
