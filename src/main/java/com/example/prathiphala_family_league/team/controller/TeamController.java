@@ -6,6 +6,7 @@ import com.example.prathiphala_family_league.team.dto.CreateTeamRequest;
 import com.example.prathiphala_family_league.team.dto.TeamResponse;
 import com.example.prathiphala_family_league.team.service.TeamService;
 import jakarta.validation.Valid;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -15,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+@Tag(name = "Teams", description = "Manage cricket teams")
 @RestController
 @RequestMapping("/api/v1/teams")
 @RequiredArgsConstructor

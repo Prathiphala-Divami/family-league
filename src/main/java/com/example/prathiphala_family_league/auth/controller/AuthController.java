@@ -6,6 +6,7 @@ import com.example.prathiphala_family_league.auth.dto.RegisterRequest;
 import com.example.prathiphala_family_league.auth.service.AuthService;
 import com.example.prathiphala_family_league.common.response.ApiResponse;
 import jakarta.validation.Valid;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Tag(name = "Authentication", description = "Register, login, and logout")
 @RestController
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor

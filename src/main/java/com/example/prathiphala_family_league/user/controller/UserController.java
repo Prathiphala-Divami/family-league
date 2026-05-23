@@ -8,6 +8,7 @@ import com.example.prathiphala_family_league.user.dto.UserProfileResponse;
 import com.example.prathiphala_family_league.user.dto.UserSummaryResponse;
 import com.example.prathiphala_family_league.user.service.UserService;
 import jakarta.validation.Valid;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -17,6 +18,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+@Tag(name = "Users", description = "User profile and admin user management")
 @RestController
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor

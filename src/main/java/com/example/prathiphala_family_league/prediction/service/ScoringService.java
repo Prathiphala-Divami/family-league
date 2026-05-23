@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.event.TransactionPhase;
 import org.springframework.transaction.event.TransactionalEventListener;
@@ -30,7 +31,7 @@ public class ScoringService {
     // and the writer's transaction; @Async decouples scoring from the HTTP response.
     @Async("familyLeagueExecutor")
     @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void calculatePoints(ResultPublishedEvent event) {
         log.info("Scoring started: matchId={} seasonId={}", event.getMatchId(), event.getSeasonId());
 

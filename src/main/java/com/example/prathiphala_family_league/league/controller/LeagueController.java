@@ -6,6 +6,7 @@ import com.example.prathiphala_family_league.league.dto.CreateLeagueRequest;
 import com.example.prathiphala_family_league.league.dto.LeagueResponse;
 import com.example.prathiphala_family_league.league.service.LeagueService;
 import jakarta.validation.Valid;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -15,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+@Tag(name = "Leagues", description = "Create and browse leagues")
 @RestController
 @RequestMapping("/api/v1/leagues")
 @RequiredArgsConstructor

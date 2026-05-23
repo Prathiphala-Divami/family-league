@@ -6,6 +6,7 @@ import com.example.prathiphala_family_league.match.dto.CreateMatchRequest;
 import com.example.prathiphala_family_league.match.dto.MatchResponse;
 import com.example.prathiphala_family_league.match.service.MatchService;
 import jakarta.validation.Valid;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -15,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+@Tag(name = "Matches", description = "Schedule and manage matches within a season")
 @RestController
 @RequiredArgsConstructor
 public class MatchController {

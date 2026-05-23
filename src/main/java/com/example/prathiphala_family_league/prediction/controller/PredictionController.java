@@ -5,6 +5,7 @@ import com.example.prathiphala_family_league.prediction.dto.PredictionResponse;
 import com.example.prathiphala_family_league.prediction.dto.SubmitPredictionRequest;
 import com.example.prathiphala_family_league.prediction.service.PredictionService;
 import jakarta.validation.Valid;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Predictions", description = "Submit and view match predictions")
 @RestController
 @RequestMapping("/api/v1/matches/{matchId}/predictions")
 @RequiredArgsConstructor

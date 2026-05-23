@@ -5,6 +5,7 @@ import com.example.prathiphala_family_league.match.dto.MatchResultResponse;
 import com.example.prathiphala_family_league.match.dto.PublishResultRequest;
 import com.example.prathiphala_family_league.match.service.ResultService;
 import jakarta.validation.Valid;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+@Tag(name = "Match Results", description = "Publish match results — triggers async scoring")
 @RestController
 @RequestMapping("/api/v1/matches/{matchId}/result")
 @RequiredArgsConstructor

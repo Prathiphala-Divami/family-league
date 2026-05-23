@@ -8,6 +8,7 @@ import com.example.prathiphala_family_league.league.dto.SeasonResponse;
 import com.example.prathiphala_family_league.league.service.SeasonService;
 import com.example.prathiphala_family_league.team.dto.TeamResponse;
 import jakarta.validation.Valid;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Seasons", description = "Manage seasons, teams within a season, and season lifecycle")
 @RestController
 @RequiredArgsConstructor
 public class SeasonController {

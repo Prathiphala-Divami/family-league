@@ -6,6 +6,7 @@ import com.example.prathiphala_family_league.team.dto.PlayerResponse;
 import com.example.prathiphala_family_league.team.dto.UpdatePlayerRequest;
 import com.example.prathiphala_family_league.team.service.PlayerService;
 import jakarta.validation.Valid;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Players", description = "Manage players within a team")
 @RestController
 @RequestMapping("/api/v1/teams/{teamId}/players")
 @RequiredArgsConstructor
