@@ -16,7 +16,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     open-in-view: false
 
   flyway:
@@ -25,10 +25,10 @@ spring:
     baseline-on-migrate: false
 
   mail:
-    host: ${MAIL_HOST}
+    host: ${MAIL_HOST:localhost}
     port: ${MAIL_PORT:587}
-    username: ${MAIL_USERNAME}
-    password: ${MAIL_PASSWORD}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
     properties:
       mail:
         smtp:
@@ -54,8 +54,8 @@ app:
     league-lock-offset-hours: 4
 
   notification:
-    admin-email: ${ADMIN_EMAIL}
-    from-address: ${MAIL_FROM}
+    admin-email: ${ADMIN_EMAIL:admin@localhost}
+    from-address: ${MAIL_FROM:noreply@localhost}
 
   async:
     core-pool-size: 2
